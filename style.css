@@ -1,36 +1,15 @@
 body {
   font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: #f4f4f4;
-}
-
-header {
-  background: #333;
-  color: #fff;
-  padding: 10px 0;
   text-align: center;
-}
-
-nav a {
-  color: #fff;
-  margin: 0 15px;
-  text-decoration: none;
-}
-
-section {
   margin: 20px;
-  padding: 20px;
-  background: #fff;
-  border-radius: 8px;
 }
 
-footer {
-  text-align: center;
-  padding: 10px;
-  background: #222;
-  color: #aaa;
-  position: fixed;
-  width: 100%;
-  bottom: 0;
+#namesInput {
+  width: 300px;
+  height: 250px;
+}
+
+#scoreBoard {
+  list-style: none;
+  padding: 0;
 }
