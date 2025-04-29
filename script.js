@@ -51,7 +51,7 @@ function nextTurn() {
   updateScoreBoard();
 
   // Reset and start 22-second timer
-  currentSeconds = 22;
+  currentSeconds = secondsPerTurn;
 }
 
 function updateScoreBoard() {
