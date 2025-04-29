@@ -47,6 +47,7 @@ function nextTurn() {
 
   // Reset timer values here
   currentSeconds = secondsPerTurn;
+  
   document.getElementById('timerText').innerText = `${currentSeconds}s`;
 
   // Reset circle to full
