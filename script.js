@@ -10,8 +10,8 @@ function startGame() {
   turnLimit = parseInt(document.getElementById('turnsInput').value);
   secondsPerTurn = parseInt(document.getElementById('secondsInput').value);
 
-  if (players.length === 0 || players.length > 21 || isNaN(turnLimit) || turnLimit < 1 || isNaN(secondsPerTurn) || secondsPerTurn < 1) {
-    alert('Please enter between 1 and 21 names, a valid number of turns, and valid seconds per turn.');
+  if (players.length === 0 || players.length > 25 || isNaN(turnLimit) || turnLimit < 1 || isNaN(secondsPerTurn) || secondsPerTurn < 1) {
+    alert('Please enter between 1 and 25 names, a valid number of turns, and valid seconds per turn.');
     return;
   }
 
