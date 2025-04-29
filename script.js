@@ -59,12 +59,20 @@ function updateScoreBoard() {
 }
 
 function updateTimer() {
-  currentSeconds--;
-  document.getElementById('timer').innerText = `Time left: ${currentSeconds}s`;
-
-  if (currentSeconds <= 0) {
+  currentSeconds -= 1;
+  if (currentSeconds < 0) {
     nextTurn();
+    return;
   }
+
+  // Update text
+  document.getElementById('timerText').innerText = `${currentSeconds}s`;
+
+  // Update circle
+  const circle = document.getElementById('timerCircle');
+  const circumference = 2 * Math.PI * 45; // 2πr
+  const offset = circumference * (1 - currentSeconds / 22);
+  circle.style.strokeDashoffset = offset;
 }
 
 // Attach start button event
