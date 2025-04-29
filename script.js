@@ -8,9 +8,10 @@ function startGame() {
   const namesText = document.getElementById('namesInput').value.trim();
   players = namesText.split('\n').map(name => name.trim()).filter(name => name !== "");
   turnLimit = parseInt(document.getElementById('turnsInput').value);
+  secondsPerTurn = parseInt(document.getElementById('secondsInput').value);
 
-  if (players.length === 0 || players.length > 21 || isNaN(turnLimit) || turnLimit < 1) {
-    alert('Please enter between 1 and 21 names and a valid number of turns.');
+  if (players.length === 0 || players.length > 21 || isNaN(turnLimit) || turnLimit < 1 || isNaN(secondsPerTurn) || secondsPerTurn < 1) {
+    alert('Please enter between 1 and 21 names, a valid number of turns, and valid seconds per turn.');
     return;
   }
 
@@ -27,8 +28,13 @@ function startGame() {
   nextTurn();
 }
 
+
 function nextTurn() {
   // Check if game is done
+  currentSeconds = secondsPerTurn;
+  document.getElementById('timerText').innerText = `${currentSeconds}s`;
+  document.getElementById('timerCircle').style.strokeDashoffset = 0;
+
   if (Object.values(scores).every(score => score >= turnLimit)) {
     document.getElementById('currentPlayer').innerText = "Game Over!";
     clearInterval(intervalId);
@@ -71,7 +77,7 @@ function updateTimer() {
   // Update circle
   const circle = document.getElementById('timerCircle');
   const circumference = 2 * Math.PI * 45; // 2πr
-  const offset = circumference * (1 - currentSeconds / 22);
+  const offset = circumference * (1 - currentSeconds / secondsPerTurn);
   circle.style.strokeDashoffset = offset;
 }
 
