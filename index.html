@@ -2,19 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Random Turn Picker</title>
+  <title>Random Turn Picker Game</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Random Turn Picker</h1>
+  <h1>Random Turn Picker Game</h1>
 
+  <!-- Setup Section -->
   <div id="setup">
     <h3>Enter names (max 21, one per line):</h3>
     <textarea id="namesInput" rows="10" cols="30" placeholder="Enter names here..."></textarea>
 
     <h3>Number of turns per player:</h3>
     <input type="number" id="turnsInput" min="1" value="1">
-    
+
     <h3>Seconds per turn:</h3>
     <input type="number" id="secondsInput" min="1" value="22">
 
@@ -22,20 +23,24 @@
     <button id="startButton">Start Game</button>
   </div>
 
-  <div id="game" style="display:none;">
+  <!-- Game Section -->
+  <div id="game" style="display: none;">
     <h2 id="currentPlayer">Get Ready!</h2>
+
+    <!-- Circular Timer -->
     <div id="timerWrapper">
-  <svg id="timerSvg" width="100" height="100">
-    <circle id="timerCircle" r="45" cx="50" cy="50" fill="none" stroke="#4CAF50" stroke-width="10"/>
-  </svg>
-  <p id="timerText">22s</p>
-</div>
+      <svg id="timerSvg" width="100" height="100">
+        <circle id="timerCircle" r="45" cx="50" cy="50" fill="none" stroke="#4CAF50" stroke-width="10" />
+      </svg>
+      <p id="timerText">22s</p>
+    </div>
 
-
+    <!-- Scoreboard -->
     <h3>Scores:</h3>
     <ul id="scoreBoard"></ul>
   </div>
 
+  <!-- Link the script -->
   <script src="script.js"></script>
 </body>
 </html>
