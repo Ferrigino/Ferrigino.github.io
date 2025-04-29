@@ -28,31 +28,32 @@ function startGame() {
   nextTurn();
 }
 
-
 function nextTurn() {
-  // Check if game is done
-  currentSeconds = secondsPerTurn;
-  document.getElementById('timerText').innerText = `${currentSeconds}s`;
-  document.getElementById('timerCircle').style.strokeDashoffset = 0;
-
+  // Check if the game is done
   if (Object.values(scores).every(score => score >= turnLimit)) {
     document.getElementById('currentPlayer').innerText = "Game Over!";
     clearInterval(intervalId);
     return;
   }
 
-  // Pick a random player who still needs turns
+  // Pick a random eligible player
   let eligiblePlayers = players.filter(p => scores[p] < turnLimit);
   let randomPlayer = eligiblePlayers[Math.floor(Math.random() * eligiblePlayers.length)];
 
-  // Update UI
+  // Update current player UI
   document.getElementById('currentPlayer').innerText = `${randomPlayer}'s Turn!`;
   scores[randomPlayer]++;
   updateScoreBoard();
 
-  // Reset and start 22-second timer
+  // Reset timer values here
   currentSeconds = secondsPerTurn;
+  document.getElementById('timerText').innerText = `${currentSeconds}s`;
+
+  // Reset circle to full
+  const circle = document.getElementById('timerCircle');
+  circle.style.strokeDashoffset = 0;
 }
+
 
 function updateScoreBoard() {
   const scoreBoard = document.getElementById('scoreBoard');
