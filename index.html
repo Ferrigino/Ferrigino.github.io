@@ -2,39 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>My GitHub Website</title>
+  <title>Random Turn Picker</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>Welcome to My Site</h1>
-    <nav>
-      <a href="#about">About</a> |
-      <a href="#projects">Projects</a> |
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+  <h1>Random Turn Picker</h1>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>I'm learning how to build websites using GitHub Pages and code with Python!</p>
-  </section>
+  <div id="setup">
+    <h3>Enter names (max 21, one per line):</h3>
+    <textarea id="namesInput" rows="10" cols="30" placeholder="Enter names here..."></textarea>
 
-  <section id="projects">
-    <h2>Projects</h2>
-    <ul>
-      <li>Website with GitHub Pages</li>
-      <li>Simple Python Scripts</li>
-    </ul>
-  </section>
+    <h3>Number of turns per player:</h3>
+    <input type="number" id="turnsInput" min="1" value="1">
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email me at: yourname@example.com</p>
-  </section>
+    <br><br>
+    <button id="startButton">Start Game</button>
+  </div>
 
-  <footer>
-    <p>&copy; 2025 MyWebsite</p>
-  </footer>
+  <div id="game" style="display:none;">
+    <h2 id="currentPlayer">Get Ready!</h2>
+    <p id="timer">Time left: 22s</p>
+
+    <h3>Scores:</h3>
+    <ul id="scoreBoard"></ul>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
