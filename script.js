@@ -2,7 +2,7 @@ let players = [];
 let turnLimit = 0;
 let scores = {};
 let intervalId;
-let currentSeconds = 22;
+let currentSeconds = secondsPerTurn;
 
 function startGame() {
   const namesText = document.getElementById('namesInput').value.trim();
